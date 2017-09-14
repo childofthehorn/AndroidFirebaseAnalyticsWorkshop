@@ -32,6 +32,7 @@ public class MainApplication extends Application {
             mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
             application = this;
+            //addSpecial();
     }
 
     public static MainApplication getInstance() {

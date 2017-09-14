@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        getSupportActionBar().setTitle(R.string.title_activity_login);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -160,7 +161,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     public void onResume() {
         super.onResume();
-        mFirebaseAnalytics.setCurrentScreen(this, getString(R.string.title_activity_login), null /* class override */);
+        //mFirebaseAnalytics.setCurrentScreen(this, getString(R.string.title_activity_login), null /* class override */);
     }
 
 
@@ -351,17 +352,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //CAN DO A CUSTOM FOR FAILURES
         if(success) {
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, null);
+            //mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, null);
             String username[] = userFirstName.split("@");
             if (!TextUtils.isEmpty(username[0])) {
-                mFirebaseAnalytics.setUserId(username[0]);
+                //mFirebaseAnalytics.setUserId(username[0]);
             }
         }
         //CAN DO A CUSTOM FOR ALSO SEEING FAILURES
+        /*
         Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, String.valueOf(success));
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Login Page");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        */
     }
 
     /**
