@@ -1,3 +1,5 @@
+Slides to Match the code: http://bit.ly/FBAnalyticsWorkshop
+
 DISCLOSURE
 
 STARTING CODE COPIED FROM https://github.com/firebase/quickstart-android.git
