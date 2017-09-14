@@ -28,6 +28,9 @@ Result
 -----------
 After running the app you should see a screen like this:
 
+<img src="app/src/screen2.png" height="534" width="300"/>
+
+And then once logged in (foo@example.com, hello) you can get to the main app here:
 <img src="app/src/screen.png" height="534" width="300"/>
 
 The first time you run the app you will be asked what your
