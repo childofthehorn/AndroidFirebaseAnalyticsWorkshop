@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         // [START shared_app_measurement]
         // Obtain the FirebaseAnalytics instance. (can also use MainApplication.getInstance().mFirebaseAnalytics
-        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // [END shared_app_measurement]
 
         // On first app open, ask the user his/her favorite food. Then set this as a user property
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 .apply();
 
         // [START user_property]
-        //mFirebaseAnalytics.setUserProperty("favorite_food", mFavoriteFood);
+        mFirebaseAnalytics.setUserProperty("favorite_food", mFavoriteFood);
         // [END user_property]
     }
 
@@ -193,12 +193,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(sendIntent);
 
             // #TODO [START custom_event]
-            /*
+
             Bundle params = new Bundle();
             params.putString("image_name", name);
             params.putString("full_text", text);
             mFirebaseAnalytics.logEvent("share_image", params);
-            */
+
             // [END custom_event]
         }
         return false;
@@ -235,12 +235,12 @@ public class MainActivity extends AppCompatActivity {
         String name = getCurrentImageTitle();
 
         // [START image_view_event]
-        /* Bundle bundle = new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id);
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-        */
+
         // [END image_view_event]
     }
 
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         String screenName = getCurrentImageId() + "-" + getCurrentImageTitle();
 
         // [START set_current_screen]
-        //mFirebaseAnalytics.setCurrentScreen(this, screenName, null /* class override */);
+        mFirebaseAnalytics.setCurrentScreen(this, screenName, null /* class override */);
         // [END set_current_screen]
     }
 

@@ -38,4 +38,4 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
 }
 
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'

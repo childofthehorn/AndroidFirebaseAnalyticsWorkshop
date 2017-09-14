@@ -17,7 +17,7 @@ public class MainApplication extends Application {
      * The {@code FirebaseAnalytics} used to record screen views.
      */
     // [START declare_analytics]
-    private FirebaseAnalytics mFirebaseAnalytics;
+    FirebaseAnalytics mFirebaseAnalytics;
     // [END declare_analytics]
 
     private static MainApplication application;

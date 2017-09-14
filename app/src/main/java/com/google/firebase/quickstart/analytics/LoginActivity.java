@@ -22,6 +22,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -107,6 +108,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+        mFirebaseAnalytics = MainApplication.getInstance().mFirebaseAnalytics;
+
         // check if we have already logged in
         checkLoggedIn();
     }
@@ -152,6 +155,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 populateAutoComplete();
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mFirebaseAnalytics.setCurrentScreen(this, getString(R.string.title_activity_login), null /* class override */);
     }
 
 
@@ -314,6 +323,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String pword = sharedPrefs.getString(USER_PW_PREF, "");
         if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pword)) {
             Toast.makeText(this,"Using previous credentials", Toast.LENGTH_SHORT);
+            showProgress(true);
             mAuthTask = new UserLoginTask(username, pword);
             mAuthTask.execute((Void) null);
         }
@@ -333,6 +343,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         SharedPreferences.Editor editor= sharedPrefs.edit();
         editor.putString(USER_NAME_PREF, user);
         editor.putString(USER_PW_PREF, password);
+        editor.apply();
         loginComplete();
     }
 
