@@ -1,3 +1,13 @@
+DISCLOSURE
+
+STARTING CODE COPIED FROM https://github.com/firebase/quickstart-android.git
+
+Content Added :
+- Main Application Start/Control
+- Extra Firebase Analytics feature controls
+- Example Login Page with Shared Pref Store and Username logging
+
+
 Google Analytics for Firebase Quickstart
 ========================================
 
